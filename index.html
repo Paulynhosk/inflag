@@ -26,7 +26,7 @@
 
   <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
-<body>
+<body ng-app="myFlag">
 
   <!--==========================
     Header
@@ -116,7 +116,7 @@
              <div class="row">
           <div class="col-lg-6">
             <h3>O que é CTF?</h3>
-            <p class="changeTypeClass">O CTF (Capture the Flag). No âmbito da informática, são competições que envolvem diversas competências dos 			profissionais, estudantes, entusiastas para a resolução de desafios relacionados à infosec (segurança da informação), 
+            <p class="changeTypeClass">O CTF (Capture the Flag). No âmbito da informática, são competições que envolvem diversas competências dos 			profissionais, estudantes, entusiastas para a resolução de desafios relacionados à infosec (segurança da informação),
 		com o objetivo de capturar a bandeira (normalmente um código) e pontuar.</p>
           </div>
           <div class="col-lg-6">
@@ -127,7 +127,7 @@
       </div>
             </div>
           </div>
-          
+
         </div>
       </div>
 
@@ -242,7 +242,7 @@
     <!--==========================
       Schedule Section
     ============================-->
-    <section id="schedule" class="section-with-bg">
+    <section id="schedule" class="section-with-bg" ng-controller="mySchedule">
       <div class="container wow fadeInUp">
         <div class="section-header">
           <h2>Cronograma de Eventos</h2>
@@ -657,7 +657,7 @@
     <!--==========================
       Gallery Section
     ============================-->
-    <section id="gallery" class="wow fadeInUp">
+    <section id="gallery" class="wow fadeInUp" ng-controller="myGallery">
 
       <div class="container">
         <div class="section-header">
@@ -757,7 +757,7 @@
           <p> Modulos teoricos e praticos </p>
         </div>
 
-        <div class="row justify-content-center">
+        <div class="row justify-content-center" ng-controller="myCurser">
           <div class="col-lg-9">
               <ul id="course-list">
 
@@ -772,7 +772,7 @@
                 </li>
 
                 <li>
-                  <a data-toggle="collapse" href="#course2" class="collapsed"> Criptografia <i class="fa fa-minus-circle"></i></a>
+                  <a data-toggle="collapse" href="#course2" class="collapsed"> Crypto (Criptografia) <i class="fa fa-minus-circle"></i></a>
                   <div id="course2" class="collapse" data-parent="#course-list">
                     <p>
                       Conceito de segurança. Pilares da segurança da informação, conhecendo criptografica.
@@ -781,7 +781,7 @@
                 </li>
 
                 <li>
-                  <a data-toggle="collapse" href="#course3" class="collapsed"> Redes <i class="fa fa-minus-circle"></i></a>
+                  <a data-toggle="collapse" href="#course3" class="collapsed"> Networking (Redes) <i class="fa fa-minus-circle"></i></a>
                   <div id="course3" class="collapse" data-parent="#course-list">
                     <p>
                       Conhecendo a rede...
@@ -799,8 +799,17 @@
                 </li>
 
                 <li>
-                  <a data-toggle="collapse" href="#course5" class="collapsed"> Programação <i class="fa fa-minus-circle"></i></a>
+                  <a data-toggle="collapse" href="#course5" class="collapsed"> Reversing (Engenharia Reversa), <i class="fa fa-minus-circle"></i></a>
                   <div id="course5" class="collapse" data-parent="#course-list">
+                    <p>
+                        Tecnica de Engenharia reversa
+                    </p>
+                  </div>
+                </li>
+
+                <li>
+                  <a data-toggle="collapse" href="#course6" class="collapsed"> PPC - Professional Proramming and Coding (Programação) <i class="fa fa-minus-circle"></i></a>
+                  <div id="course6" class="collapse" data-parent="#course-list">
                     <p>
                       Realizando pequeno script com python.
                     </p>
@@ -808,10 +817,19 @@
                 </li>
 
                 <li>
-                  <a data-toggle="collapse" href="#course6" class="collapsed"> Engenharia reversa <i class="fa fa-minus-circle"></i></a>
-                  <div id="course6" class="collapse" data-parent="#course-list">
+                  <a data-toggle="collapse" href="#course7" class="collapsed"> Pwnables | Exploitation (Exploração de binários) <i class="fa fa-minus-circle"></i></a>
+                  <div id="course7" class="collapse" data-parent="#course-list">
                     <p>
-                      Tecnica de Engenharia reversa
+                      Exploração de binários
+                    </p>
+                  </div>
+                </li>
+
+		<li>
+                  <a data-toggle="collapse" href="#course8" class="collapsed"> Miscellaneous (Diversos) <i class="fa fa-minus-circle"></i></a>
+                  <div id="course8" class="collapse" data-parent="#course-list">
+                    <p>
+                      Tecnica de invasão de wifi?
                     </p>
                   </div>
                 </li>
@@ -833,20 +851,21 @@
 	  <h2 class="text-center">Recrutamento</h2>
         </div>
         <div class="row">
+	   <p>  </p>
 
 	   <div class="col-md-4 section-header">
 
-		<p><strong class="display-4"> Estudante </strong></br></br>
+		<p><strong class="h1"> Estudante </strong></br></br>
 		   <button class="btn"><a class="text-white" href="#">Escrever aqui</a></button> </p>
 	   </div>
 	   <div class="col-md-4 section-header">
 
-		<p><strong class="display-4"> Professor </strong></br></br>
+		<p><strong class="h1"> Professor </strong></br></br>
 		   <button class="btn"><a class="text-white" href="#">Escrever aqui</a></button> </p>
 	   </div>
            <div class="col-md-4 section-header">
 
-		<p><strong class="display-4"> Colaborador </strong></br></br>
+		<p><strong class="h1"> Colaborador </strong></br></br>
 		   <button class="btn"><a class="text-white" href="#">Escrever aqui</a></button> </p>
 	   </div>
 	</div>
@@ -983,6 +1002,7 @@
   </footer><!-- #footer -->
 
   <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+  <!--script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.js"></script-->
 
   <!-- JavaScript Libraries -->
   <script src="lib/jquery/jquery.min.js"></script>
@@ -1000,7 +1020,9 @@
 
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
-  <script src="js/t-writer.js"></script>
+  <!--script src="js/t-writer.js"></script-->
+
+  <!--script src="js/schedule.js"></script-->
 </body>
 
 </html>
